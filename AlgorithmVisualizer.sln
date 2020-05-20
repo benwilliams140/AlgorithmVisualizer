@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlgorithmVisualizer", "AlgorithmVisualizer\AlgorithmVisualizer.vcxproj", "{9EE28CCF-2FF1-4284-86A5-BEB56625DC12}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EE28CCF-2FF1-4284-86A5-BEB56625DC12}.Debug|x64.ActiveCfg = Debug|x64
+		{9EE28CCF-2FF1-4284-86A5-BEB56625DC12}.Debug|x64.Build.0 = Debug|x64
+		{9EE28CCF-2FF1-4284-86A5-BEB56625DC12}.Debug|x86.ActiveCfg = Debug|Win32
+		{9EE28CCF-2FF1-4284-86A5-BEB56625DC12}.Debug|x86.Build.0 = Debug|Win32
+		{9EE28CCF-2FF1-4284-86A5-BEB56625DC12}.Release|x64.ActiveCfg = Release|x64
+		{9EE28CCF-2FF1-4284-86A5-BEB56625DC12}.Release|x64.Build.0 = Release|x64
+		{9EE28CCF-2FF1-4284-86A5-BEB56625DC12}.Release|x86.ActiveCfg = Release|Win32
+		{9EE28CCF-2FF1-4284-86A5-BEB56625DC12}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {623D8DDD-79D2-40A7-AE98-E2190C876A52}
+	EndGlobalSection
+EndGlobal
