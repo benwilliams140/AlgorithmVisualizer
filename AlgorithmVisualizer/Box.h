@@ -6,16 +6,19 @@
 class Box
 {
 public:
-	Box(int);
+	Box(int, sf::Vector2f, sf::Vector2f);
 	~Box();
 
 	void update(float);
-	void render(sf::RenderWindow);
+	void render(sf::RenderWindow&);
 
 	int getValue() const { return mValue; }
 
 private:
-	int mValue;
+	int						mValue;
+
+	sf::RectangleShape		mRect;
+	sf::Text				mText;
 };
 
 #endif

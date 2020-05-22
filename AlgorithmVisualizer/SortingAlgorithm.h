@@ -7,7 +7,7 @@
 class SortingAlgorithm
 {
 public:
-	SortingAlgorithm(sf::RenderWindow);
+	SortingAlgorithm(sf::RenderWindow&, int, int, int);
 	~SortingAlgorithm();
 
 	virtual void sort();
@@ -16,12 +16,12 @@ public:
 	void render();
 
 private:
-	sf::RenderWindow mWindow;
-	
-	std::vector<void* ()> mSteps;
+	void compare(class Box*, class Box*);
+	void swap(class Box*, class Box*);
+
+	sf::RenderWindow& mWindow;
 
 	std::vector<class Box*> mBoxes;
-	std::vector<int> values;
 };
 
 #endif
