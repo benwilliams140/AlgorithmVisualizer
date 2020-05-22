@@ -3,8 +3,8 @@
 
 #include <string>
 
-Box::Box(int value, sf::Vector2f pos, sf::Vector2f size)
-	: mValue(value), mRect(size)
+Box::Box(int value, sf::Vector2f pos)
+	: mValue(value), mRect(sf::Vector2f(size, size))
 {
 	mRect.setOutlineColor(sf::Color::Black);
 	mRect.setOutlineThickness(2);
@@ -33,7 +33,9 @@ Box::~Box()
 
 void Box::update(float deltaTime)
 {
+	// update rect position here
 
+	mText.setPosition(mRect.getPosition());
 }
 
 void Box::render(sf::RenderWindow& window)

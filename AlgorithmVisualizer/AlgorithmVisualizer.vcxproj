@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="BubbleSort.cpp" />
+    <ClCompile Include="ControlPanel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SortingAlgorithm.cpp" />
   </ItemGroup>
@@ -153,6 +154,7 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="BubbleSort.h" />
     <ClInclude Include="Common.h" />
+    <ClInclude Include="ControlPanel.h" />
     <ClInclude Include="SortingAlgorithm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

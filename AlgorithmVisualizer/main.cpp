@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Common.h"
+#include "ControlPanel.h"
 #include "SortingAlgorithm.h"
 #include "BubbleSort.h"
 
@@ -12,6 +13,7 @@ sf::Vector2f viewSize(windowWidth, windowHeight);
 sf::VideoMode videoMode(viewSize.x, viewSize.y);
 sf::RenderWindow window(videoMode, windowTitle, sf::Style::Default);
 
+ControlPanel* cp;
 SortingAlgorithm* curAlgorithm;
 
 sf::Font boxFont;
@@ -48,12 +50,14 @@ void init()
 
 	boxFont.loadFromFile("assets/fonts/Cambria.ttf");
 
-	curAlgorithm = new BubbleSort(window, 0, 0, 0);
+	cp = new ControlPanel(window);
+	curAlgorithm = new BubbleSort(window, 6, 1, 10);
 }
 
 void cleanup()
 {
-	
+	delete cp;
+	delete curAlgorithm;
 }
 
 void processInput()

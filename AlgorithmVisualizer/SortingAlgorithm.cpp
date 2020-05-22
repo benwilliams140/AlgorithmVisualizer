@@ -3,7 +3,14 @@
 
 SortingAlgorithm::SortingAlgorithm(sf::RenderWindow& window, int numValues, int min, int max) : mWindow(window)
 {
-	mBoxes.push_back(new Box(100, sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2), sf::Vector2f(50, 50)));
+	for (int i = 0; i < numValues; ++i)
+	{
+		int value = rand() % (max - min + 1) + min;
+		float x = window.getSize().x / 2 - (i - (numValues - 1) / 2) * Box::size;
+		Box* box = new Box(value, sf::Vector2f(x, window.getSize().y / 2));
+		mBoxes.push_back(box);
+	}
+	//mBoxes.push_back(new Box(100, sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2)));
 }
 
 SortingAlgorithm::~SortingAlgorithm()
