@@ -17,9 +17,6 @@ Box::Box(int value, sf::Vector2f pos)
 	mText.setFillColor(sf::Color::Black);
 	
 	sf::FloatRect textBounds = mText.getLocalBounds();
-	//mText.setOrigin(textBounds.width / 2, textBounds.height / 2);
-	//mText.setPosition(sf::Vector2f(mRect.getPosition().x - textBounds.width / 2,
-	//							mRect.getPosition().y - textBounds.height / 2));
 	
 	mText.setOrigin(textBounds.width / 2, textBounds.height);
 	mText.setPosition(mRect.getPosition());

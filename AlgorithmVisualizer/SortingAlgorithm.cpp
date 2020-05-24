@@ -7,10 +7,9 @@ SortingAlgorithm::SortingAlgorithm(sf::RenderWindow& window, int numValues, int 
 	{
 		int value = rand() % (max - min + 1) + min;
 		float x = window.getSize().x / 2 - (i - (numValues - 1) / 2) * Box::size;
-		Box* box = new Box(value, sf::Vector2f(x, window.getSize().y / 2));
+		Box* box = new Box(value, sf::Vector2f(x, window.getSize().y / 4));
 		mBoxes.push_back(box);
 	}
-	//mBoxes.push_back(new Box(100, sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2)));
 }
 
 SortingAlgorithm::~SortingAlgorithm()
@@ -41,7 +40,7 @@ void SortingAlgorithm::render()
 
 void SortingAlgorithm::compare(Box* b1, Box* b2)
 {
-
+	
 }
 
 void SortingAlgorithm::swap(Box* b1, Box* b2)

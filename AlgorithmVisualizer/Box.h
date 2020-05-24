@@ -6,6 +6,11 @@
 class Box
 {
 public:
+	struct Color
+	{
+
+	};
+
 	Box(int, sf::Vector2f);
 	~Box();
 

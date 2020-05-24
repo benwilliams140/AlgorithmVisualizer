@@ -1,3 +1,4 @@
+//#include <TGUI/TGUI.hpp>
 #include <SFML/Graphics.hpp>
 
 #include "Common.h"
@@ -12,6 +13,8 @@ const std::string windowTitle = "Algorithm Visualizer";
 sf::Vector2f viewSize(windowWidth, windowHeight);
 sf::VideoMode videoMode(viewSize.x, viewSize.y);
 sf::RenderWindow window(videoMode, windowTitle, sf::Style::Default);
+
+//tgui::Gui gui(window);
 
 ControlPanel* cp;
 SortingAlgorithm* curAlgorithm;
@@ -50,7 +53,7 @@ void init()
 
 	boxFont.loadFromFile("assets/fonts/Cambria.ttf");
 
-	cp = new ControlPanel(window);
+	cp = new ControlPanel(window/*, gui*/);
 	curAlgorithm = new BubbleSort(window, 6, 1, 10);
 }
 
@@ -65,7 +68,14 @@ void processInput()
 	sf::Event event;
 	while (window.pollEvent(event))
 	{
-		if (event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape) window.close();
+		if (/*event.type == sf::Event::Closed || */event.key.code == sf::Keyboard::Escape) window.close();
+	
+		if (event.type == sf::Event::KeyPressed)
+		{
+
+		}
+
+		cp->handleEvent(event);
 	}
 }
 
@@ -79,6 +89,7 @@ void render()
 	window.clear(sf::Color::White);
 
 	curAlgorithm->render();
+	cp->render();
 
 	window.display();
 }
