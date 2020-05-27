@@ -1,13 +1,13 @@
 #ifndef CONTROL_PANEL_H
 #define CONTROL_PANEL_H
 
-//#include <TGUI/TGUI.hpp>
-#include <SFML/Graphics.hpp>
+#include <TGUI/TGUI.hpp>
+#include <string>
 
 class ControlPanel
 {
 public:
-	ControlPanel(sf::RenderWindow&/*, tgui::Gui&*/);
+	ControlPanel(class Main*, sf::RenderWindow&, tgui::Gui&);
 	~ControlPanel();
 
 	void handleEvent(sf::Event&);
@@ -15,16 +15,21 @@ public:
 
 private:
 	void init();
+	bool isNumber(std::string);
 
 	sf::RenderWindow& mWindow;
-	/*tgui::Gui& mGui;
+	tgui::Gui& mGui;
+	class Main* mMain;
 
 	tgui::Panel::Ptr mPanel;
 	tgui::Button::Ptr mBtnGenerate;
 	tgui::ListBox::Ptr mLboAlgorithms;
 	tgui::EditBox::Ptr mEboMinimum;
 	tgui::EditBox::Ptr mEboMaximum;
-	tgui::RangeSlider::Ptr mSldNumValues;*/
+	tgui::Slider::Ptr mSldNumValues;
+
+	std::string algorithm;
+	int numValues, min, max;
 };
 
 #endif

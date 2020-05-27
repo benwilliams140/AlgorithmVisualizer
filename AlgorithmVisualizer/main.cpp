@@ -1,95 +1,83 @@
-//#include <TGUI/TGUI.hpp>
-#include <SFML/Graphics.hpp>
+#include <TGUI/TGUI.hpp>
 
-#include "Common.h"
+#include "Main.h"
 #include "ControlPanel.h"
 #include "SortingAlgorithm.h"
 #include "BubbleSort.h"
 
-const unsigned int windowWidth = 1024;
-const unsigned int windowHeight = 768;
-const std::string windowTitle = "Algorithm Visualizer";
-
-sf::Vector2f viewSize(windowWidth, windowHeight);
-sf::VideoMode videoMode(viewSize.x, viewSize.y);
-sf::RenderWindow window(videoMode, windowTitle, sf::Style::Default);
-
-//tgui::Gui gui(window);
-
-ControlPanel* cp;
-SortingAlgorithm* curAlgorithm;
-
-sf::Font boxFont;
-
-void init();
-void cleanup();
-
-void processInput();
-void update(float);
-void render();
-
-int main()
+Main::Main() : mViewSize(mWindowWidth, mWindowHeight),
+				mVideoMode(mViewSize.x, mViewSize.y),
+				mWindow(mVideoMode, mWindowTitle, sf::Style::Default),
+				mGui(mWindow)
 {
 	init();
+}
 
+Main::~Main()
+{
+	delete mCP;
+	delete mCurAlgorithm;
+}
+
+void Main::loop()
+{
 	sf::Clock clock;
-	window.setFramerateLimit(60);
+	mWindow.setFramerateLimit(60);
 
-	while (window.isOpen())
+	while (mWindow.isOpen())
 	{
 		processInput();
 		update(clock.restart().asSeconds());
 		render();
 	}
-
-	cleanup();
-
-	return 0;
 }
 
-void init()
+void Main::init()
 {
 	srand(time(NULL));
 
 	boxFont.loadFromFile("assets/fonts/Cambria.ttf");
 
-	cp = new ControlPanel(window/*, gui*/);
-	curAlgorithm = new BubbleSort(window, 6, 1, 10);
+	mCP = new ControlPanel(this, mWindow, mGui);
 }
 
-void cleanup()
-{
-	delete cp;
-	delete curAlgorithm;
-}
-
-void processInput()
+void Main::processInput()
 {
 	sf::Event event;
-	while (window.pollEvent(event))
+	while (mWindow.pollEvent(event))
 	{
-		if (/*event.type == sf::Event::Closed || */event.key.code == sf::Keyboard::Escape) window.close();
+		if (event.type == sf::Event::Closed) mWindow.close();
 	
 		if (event.type == sf::Event::KeyPressed)
 		{
 
 		}
 
-		cp->handleEvent(event);
+		mCP->handleEvent(event);
 	}
 }
 
-void update(float deltaTime)
+void Main::update(float deltaTime)
 {
-	curAlgorithm->update(deltaTime);
+	if(mCurAlgorithm != NULL) mCurAlgorithm->update(deltaTime);
 }
 
-void render()
+void Main::render()
 {
-	window.clear(sf::Color::White);
+	mWindow.clear(sf::Color::White);
 
-	curAlgorithm->render();
-	cp->render();
+	if(mCurAlgorithm != NULL) mCurAlgorithm->render();
+	mCP->render();
 
-	window.display();
+	mWindow.display();
+}
+
+void Main::generateAlgorithm(std::string algorithm, int numValues, int min, int max)
+{
+	if (mCurAlgorithm != NULL) delete mCurAlgorithm;
+
+	if (algorithm == "Bubble Sort")
+	{
+		mCurAlgorithm = new BubbleSort(mWindow, numValues, min, max);
+	}
 }

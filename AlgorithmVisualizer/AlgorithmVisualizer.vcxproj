@@ -105,7 +105,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\AlgorithmVisualizer\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SFML\sfml-graphics-d.lib;SFML\sfml-window-d.lib;SFML\sfml-system-d.lib;SFML\sfml-audio-d.lib;SFML\sfml-network-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SFML\sfml-graphics-d.lib;SFML\sfml-window-d.lib;SFML\sfml-system-d.lib;SFML\sfml-audio-d.lib;SFML\sfml-network-d.lib;TGUI\tgui-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -140,21 +140,23 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\AlgorithmVisualizer\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SFML\sfml-graphics.lib;SFML\sfml-window.lib;SFML\sfml-system.lib;SFML\sfml-audio.lib;SFML\sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SFML\sfml-graphics.lib;SFML\sfml-window.lib;SFML\sfml-system.lib;SFML\sfml-audio.lib;SFML\sfml-network.lib;TGUI\tgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="BubbleSort.cpp" />
     <ClCompile Include="ControlPanel.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="SortingAlgorithm.cpp" />
+    <ClCompile Include="source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h" />
     <ClInclude Include="BubbleSort.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="ControlPanel.h" />
+    <ClInclude Include="Main.h" />
     <ClInclude Include="SortingAlgorithm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
