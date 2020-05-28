@@ -9,7 +9,7 @@ SortingAlgorithm::SortingAlgorithm(sf::RenderWindow& window, int numValues, int 
 		float x = window.getSize().x / 2 - (i - (numValues - 1) / 2) * Box::size;
 		Box* box = new Box(value, sf::Vector2f(x, window.getSize().y / 4));
 		mBoxes.push_back(box);
-		std::cout << "initializing box: " << value << std::endl;
+		//std::cout << "initializing box: " << value << std::endl;
 	}
 }
 

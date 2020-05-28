@@ -27,6 +27,7 @@ private:
 	tgui::EditBox::Ptr mEboMinimum;
 	tgui::EditBox::Ptr mEboMaximum;
 	tgui::Slider::Ptr mSldNumValues;
+	tgui::TextBox::Ptr mTboNumValues;
 
 	std::string algorithm;
 	int numValues, min, max;
