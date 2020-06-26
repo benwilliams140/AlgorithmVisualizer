@@ -1,24 +1,24 @@
 #include "SortingAlgorithm.h"
 #include "Box.h"
 
-SortingAlgorithm::SortingAlgorithm(sf::RenderWindow& window, int numValues, int min, int max) : mWindow(window)
+SortingAlgorithm::SortingAlgorithm(sf::RenderWindow& _window, int _numValues, int _min, int _max) : window(_window)
 {
-	for (int i = 0; i < numValues; ++i)
+	for (int _i = 0; _i < _numValues; ++_i)
 	{
-		int value = rand() % (max - min + 1) + min;
-		float x = window.getSize().x / 2 - (i - (numValues - 1) / 2) * Box::size;
-		Box* box = new Box(value, sf::Vector2f(x, window.getSize().y / 4));
-		mBoxes.push_back(box);
+		int _value = rand() % (_max - _min + 1) + _min;
+		float _x = window.getSize().x / 2 - (_i - (_numValues - 1) / 2) * Box::SIZE;
+		Box* _box = new Box(_value, sf::Vector2f(_x, window.getSize().y / 4));
+		boxes.push_back(_box);
 		//std::cout << "initializing box: " << value << std::endl;
 	}
 }
 
 SortingAlgorithm::~SortingAlgorithm()
 {
-	while (!mBoxes.empty())
+	while (!boxes.empty())
 	{
-		delete mBoxes.back();
-		mBoxes.pop_back();
+		delete boxes.back();
+		boxes.pop_back();
 	}
 }
 
@@ -26,25 +26,27 @@ void SortingAlgorithm::sort()
 {
 }
 
-void SortingAlgorithm::update(float deltaTime)
+void SortingAlgorithm::update(float _deltaTime)
 {
 }
 
 void SortingAlgorithm::render()
 {
-	for (auto it = mBoxes.begin(); it != mBoxes.end(); ++it)
+	for (auto _it = boxes.begin(); _it != boxes.end(); ++_it)
 	{
-		Box* box = *it;
-		box->render(mWindow);
+		Box* _box = *_it;
+		_box->render(window);
 	}
 }
 
-void SortingAlgorithm::compare(Box* b1, Box* b2)
+void SortingAlgorithm::compare(Box* _b1, Box* _b2)
 {
-	
+	_b1->setColor(sf::Color::Yellow);
+	_b2->setColor(sf::Color::Yellow);
 }
 
-void SortingAlgorithm::swap(Box* b1, Box* b2)
+void SortingAlgorithm::swap(Box* _b1, Box* _b2)
 {
-
+	_b1->setColor(sf::Color::Red);
+	_b2->setColor(sf::Color::Red);
 }

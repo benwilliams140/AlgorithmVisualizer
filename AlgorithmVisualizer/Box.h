@@ -6,26 +6,23 @@
 class Box
 {
 public:
-	struct Color
-	{
-
-	};
-
 	Box(int, sf::Vector2f);
 	~Box();
 
 	void update(float);
 	void render(sf::RenderWindow&);
 
-	int getValue() const { return mValue; }
+	int getValue() const { return value; }
 
-	static const int size = 50;
+	void setColor(sf::Color _color) { rect.setOutlineColor(_color); }
+
+	static const int SIZE = 50;
 
 private:
-	int						mValue;
+	int						value;
 
-	sf::RectangleShape		mRect;
-	sf::Text				mText;
+	sf::RectangleShape		rect;
+	sf::Text				text;
 };
 
 #endif

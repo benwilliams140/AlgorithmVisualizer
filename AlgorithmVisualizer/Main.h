@@ -22,18 +22,18 @@ private:
 	void update(float);
 	void render();
 
-	const unsigned int mWindowWidth = 1024;
-	const unsigned int mWindowHeight = 768;
-	const std::string mWindowTitle = "Algorithm Visualizer";
+	const unsigned int WINDOW_WIDTH = 1024;
+	const unsigned int WINDOW_HEIGHT = 768;
+	const std::string WINDOW_TITLE = "Algorithm Visualizer";
 
-	sf::Vector2f mViewSize;
-	sf::VideoMode mVideoMode;
-	sf::RenderWindow mWindow;
+	sf::Vector2f viewSize;
+	sf::VideoMode videoMode;
+	sf::RenderWindow window;
 
-	tgui::Gui mGui;
+	tgui::Gui gui;
 
-	class ControlPanel* mCP;
-	class SortingAlgorithm* mCurAlgorithm;
+	class ControlPanel* cp;
+	class SortingAlgorithm* curAlgorithm;
 };
 
 #endif

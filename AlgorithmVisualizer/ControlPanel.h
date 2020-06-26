@@ -17,17 +17,17 @@ private:
 	void init();
 	bool isNumber(std::string);
 
-	sf::RenderWindow& mWindow;
-	tgui::Gui& mGui;
-	class Main* mMain;
+	sf::RenderWindow& window;
+	tgui::Gui& gui;
+	class Main* main;
 
-	tgui::Panel::Ptr mPanel;
-	tgui::Button::Ptr mBtnGenerate;
-	tgui::ListBox::Ptr mLboAlgorithms;
-	tgui::EditBox::Ptr mEboMinimum;
-	tgui::EditBox::Ptr mEboMaximum;
-	tgui::Slider::Ptr mSldNumValues;
-	tgui::TextBox::Ptr mTboNumValues;
+	tgui::Panel::Ptr panel;
+	tgui::Button::Ptr btnGenerate;
+	tgui::ListBox::Ptr lboAlgorithms;
+	tgui::EditBox::Ptr eboMinimum;
+	tgui::EditBox::Ptr eboMaximum;
+	tgui::Slider::Ptr sldNumValues;
+	tgui::TextBox::Ptr tboNumValues;
 
 	std::string algorithm;
 	int numValues, min, max;

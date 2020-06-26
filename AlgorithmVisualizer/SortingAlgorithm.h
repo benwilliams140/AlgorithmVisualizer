@@ -20,9 +20,9 @@ private:
 	void compare(class Box*, class Box*);
 	void swap(class Box*, class Box*);
 
-	sf::RenderWindow& mWindow;
+	sf::RenderWindow& window;
 
-	std::vector<class Box*> mBoxes;
+	std::vector<class Box*> boxes;
 };
 
 #endif

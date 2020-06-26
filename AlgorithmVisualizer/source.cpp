@@ -5,8 +5,8 @@ sf::Font boxFont;
 
 int main()
 {
-	Main main;
-	main.loop();
+	Main _main;
+	_main.loop();
 
 	return 0;
 }

@@ -1,7 +1,7 @@
 #include "BubbleSort.h"
 
-BubbleSort::BubbleSort(sf::RenderWindow& window, int numValues, int min, int max)
-	: SortingAlgorithm(window, numValues, min, max)
+BubbleSort::BubbleSort(sf::RenderWindow& _window, int _numValues, int _min, int _max)
+	: SortingAlgorithm(_window, _numValues, _min, _max)
 {
 	
 }

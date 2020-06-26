@@ -3,24 +3,24 @@
 
 #include <string>
 
-Box::Box(int value, sf::Vector2f pos)
-	: mValue(value), mRect(sf::Vector2f(size, size))
+Box::Box(int _value, sf::Vector2f _pos)
+	: value(_value), rect(sf::Vector2f(SIZE, SIZE))
 {
-	mRect.setOutlineColor(sf::Color::Black);
-	mRect.setOutlineThickness(2);
-	mRect.setPosition(pos);
-	mRect.setOrigin(sf::Vector2f(mRect.getSize().x / 2, mRect.getSize().y / 2));
+	rect.setOutlineColor(sf::Color::Black);
+	rect.setOutlineThickness(2);
+	rect.setPosition(_pos);
+	rect.setOrigin(sf::Vector2f(rect.getSize().x / 2, rect.getSize().y / 2));
 
-	mText.setFont(boxFont);
-	mText.setString(std::to_string(mValue));
-	mText.setCharacterSize(mRect.getSize().y);
-	mText.setFillColor(sf::Color::Black);
+	text.setFont(boxFont);
+	text.setString(std::to_string(value));
+	text.setCharacterSize(rect.getSize().y);
+	text.setFillColor(sf::Color::Black);
 	
-	sf::FloatRect textBounds = mText.getLocalBounds();
+	sf::FloatRect textBounds = text.getLocalBounds();
 	
-	mText.setOrigin(textBounds.width / 2, textBounds.height);
-	mText.setPosition(mRect.getPosition());
-	mText.setScale(sf::Vector2f(mRect.getSize().x * 0.8f / textBounds.width, 1.0f));
+	text.setOrigin(textBounds.width / 2, textBounds.height);
+	text.setPosition(rect.getPosition());
+	//text.setScale(sf::Vector2f(mRect.getSize().x * 0.8f / textBounds.width, 1.0f));
 }
 
 Box::~Box()
@@ -28,15 +28,15 @@ Box::~Box()
 
 }
 
-void Box::update(float deltaTime)
+void Box::update(float _deltaTime)
 {
 	// update rect position here
 
-	mText.setPosition(mRect.getPosition());
+	text.setPosition(rect.getPosition());
 }
 
-void Box::render(sf::RenderWindow& window)
+void Box::render(sf::RenderWindow& _window)
 {
-	window.draw(mRect);
-	window.draw(mText);
+	_window.draw(rect);
+	_window.draw(text);
 }

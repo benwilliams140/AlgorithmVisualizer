@@ -5,29 +5,29 @@
 #include "SortingAlgorithm.h"
 #include "BubbleSort.h"
 
-Main::Main() : mViewSize(mWindowWidth, mWindowHeight),
-				mVideoMode(mViewSize.x, mViewSize.y),
-				mWindow(mVideoMode, mWindowTitle, sf::Style::Default),
-				mGui(mWindow)
+Main::Main() : viewSize(WINDOW_WIDTH, WINDOW_HEIGHT),
+				videoMode(viewSize.x, viewSize.y),
+				window(videoMode, WINDOW_TITLE, sf::Style::Default),
+				gui(window)
 {
 	init();
 }
 
 Main::~Main()
 {
-	delete mCP;
-	delete mCurAlgorithm;
+	delete cp;
+	delete curAlgorithm;
 }
 
 void Main::loop()
 {
-	sf::Clock clock;
-	mWindow.setFramerateLimit(60);
+	sf::Clock _clock;
+	window.setFramerateLimit(60);
 
-	while (mWindow.isOpen())
+	while (window.isOpen())
 	{
 		processInput();
-		update(clock.restart().asSeconds());
+		update(_clock.restart().asSeconds());
 		render();
 	}
 }
@@ -38,46 +38,46 @@ void Main::init()
 
 	boxFont.loadFromFile("assets/fonts/Cambria.ttf");
 
-	mCP = new ControlPanel(this, mWindow, mGui);
+	cp = new ControlPanel(this, window, gui);
 }
 
 void Main::processInput()
 {
-	sf::Event event;
-	while (mWindow.pollEvent(event))
+	sf::Event _event;
+	while (window.pollEvent(_event))
 	{
-		if (event.type == sf::Event::Closed) mWindow.close();
+		if (_event.type == sf::Event::Closed) window.close();
 	
-		if (event.type == sf::Event::KeyPressed)
+		if (_event.type == sf::Event::KeyPressed)
 		{
 
 		}
 
-		mCP->handleEvent(event);
+		cp->handleEvent(_event);
 	}
 }
 
-void Main::update(float deltaTime)
+void Main::update(float _deltaTime)
 {
-	if(mCurAlgorithm != NULL) mCurAlgorithm->update(deltaTime);
+	if(curAlgorithm != NULL) curAlgorithm->update(_deltaTime);
 }
 
 void Main::render()
 {
-	mWindow.clear(sf::Color::White);
+	window.clear(sf::Color::White);
 
-	if(mCurAlgorithm != NULL) mCurAlgorithm->render();
-	mCP->render();
+	if(curAlgorithm != NULL) curAlgorithm->render();
+	cp->render();
 
-	mWindow.display();
+	window.display();
 }
 
-void Main::generateAlgorithm(std::string algorithm, int numValues, int min, int max)
+void Main::generateAlgorithm(std::string _algorithm, int _numValues, int _min, int _max)
 {
-	if (mCurAlgorithm != NULL) delete mCurAlgorithm;
+	if (curAlgorithm != NULL) delete curAlgorithm;
 
-	if (algorithm == "Bubble Sort")
+	if (_algorithm == "Bubble Sort")
 	{
-		mCurAlgorithm = new BubbleSort(mWindow, numValues, min, max);
+		curAlgorithm = new BubbleSort(window, _numValues, _min, _max);
 	}
 }
